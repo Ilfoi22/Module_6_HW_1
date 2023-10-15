@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    image: module-6-hw-1
+    ports:
+      - "80:80"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app
